@@ -1,0 +1,23 @@
+services:
+  miniflux:
+    image: miniflux/miniflux:2.0.41
+    ports:
+      - 11500:8080
+    depends_on:
+      database:
+        condition: service_healthy
+    env_file:
+      - miniflux/config.env
+
+  database:
+    build:
+      context: database/
+      dockerfile: Dockerfile
+    ports:
+      - 5432:5432
+    env_file:
+      - database/config.env
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "miniflux"]
+      interval: 10s
+      start_period: 30s
