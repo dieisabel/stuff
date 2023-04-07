@@ -2,8 +2,7 @@
 
 set -e
 
-PGPASSWORD="$POSTGRES_PASSWORD"
-
+PGPASSWORD="$ADMIN_PASSWORD"
 psql -U 'admin' \
      -d 'admin' \
      -c "CREATE USER miniflux WITH PASSWORD '$MINIFLUX_USER_PASSWORD'"
@@ -16,6 +15,7 @@ psql -U 'admin' \
 psql -U 'admin' \
      -d 'miniflux' \
      -c "GRANT ALL ON SCHEMA public TO miniflux"
+PGPASSWORD="$POSTGRES_PASSWORD" \
 psql -U 'postgres' \
      -d 'miniflux' \
      -c "CREATE EXTENSION hstore"

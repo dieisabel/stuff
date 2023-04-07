@@ -1,6 +1,8 @@
 FROM postgres:15
 
-ADD scripts/1_init.sh /docker-entrypoint-initdb.d
-ADD scripts/2_miniflux.sh /docker-entrypoint-initdb.d
+ADD scripts/ /docker-entrypoint-initdb.d
+
+ADD utils/ /utils
+RUN chmod -R +x utils/
 
 EXPOSE 5432
