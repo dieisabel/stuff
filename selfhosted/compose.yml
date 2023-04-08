@@ -43,11 +43,11 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: $HOME/stuff/selfhosted/data/database
+      device: data/database
 
   kanboard_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: $HOME/stuff/selfhosted/data/kanboard
+      device: data/kanboard
