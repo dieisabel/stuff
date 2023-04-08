@@ -18,6 +18,8 @@ services:
         condition: service_healthy
     env_file:
       - kanboard/config.env
+    volumes:
+      - kanboard_data:/var/www/app/data
 
   database:
     build:
@@ -27,8 +29,25 @@ services:
       - 5432:5432
     env_file:
       - database/config.env
+    volumes:
+      - database_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD", "/utils/healthcheck.sh"]
       interval: 10s
       start_period: 50s
       retries: 3
+
+volumes:
+  database_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: $HOME/stuff/selfhosted/data/database
+
+  kanboard_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: $HOME/stuff/selfhosted/data/kanboard
