@@ -40,10 +40,10 @@ OBJECTS = \
 $(OBJ)/main.o
 
 define HELP_BODY
-- build: compile, link
+- build: compile, link and copy sections into firmware
 - compile: compile source files into object files
 - upload: upload firmware to a microcontroller
-- clean: clean object files and executable
+- clean: clean created files
 - help: show help
 endef
 export HELP_BODY
