@@ -21,6 +21,15 @@ services:
     volumes:
       - kanboard_data:/var/www/app/data
 
+  linkding:
+    image: sissbruecker/linkding:1.17.2
+    ports:
+      - 11700:9090
+    env_file:
+      linkding/config.env
+    volumes:
+      - linkding_data:/etc/linkding/data
+
   database:
     build:
       context: database/
@@ -51,3 +60,10 @@ volumes:
       type: none
       o: bind
       device: data/kanboard
+
+  linkding_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: data/linkding
