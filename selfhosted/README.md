@@ -10,6 +10,8 @@ For managing selfhosted services I use docker and docker compose plugin. Here is
 
 Each service have their separate directory that contain configuration, scripts, dockerfiles and other files that related to service.
 
+Service data will be stored in `data/` directory as named docker volumes.
+
 ## Usage
 
 Pull containers:
