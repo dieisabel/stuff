@@ -12,3 +12,7 @@ All my notes are located in `$HOME/documents/Zettles` and `$HOME/documents/Zette
 
 I use selfhosted services using docker, some of them have data volumes that I need to backup. To backup use `backup-docker.sh`,
 make sure you run it as root.
+
+## Security files
+
+I use some security tools like Aegis for 2FA and KeePassXC for passwords, to backup them use `backup-security.sh`.
