@@ -5,5 +5,9 @@ set -e
 source ./backup.config
 
 BACKUP_FILE="$BACKUP_DIR/notes.tar.gz"
+INCLUDE=(
+    'Zettles'
+    'Zettelkasten'
+)
 
-tar zcf "$BACKUP_FILE" -C "$NOTES_DIR" $(find "$NOTES_DIR" -name 'Z*' -printf '%f\n')
+tar zcf "$BACKUP_FILE" -C "$NOTES_DIR" ${INCLUDE[*]}
