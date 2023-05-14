@@ -9,7 +9,7 @@ INCLUDE=(
     'Library'
     'Datasheets'
     'Finances.ods'
-    'Resume'
+    'Work'
     'Learning'
 )
 
