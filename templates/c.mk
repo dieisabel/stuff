@@ -9,7 +9,7 @@ INC := include
 LIBS     := -L $(LIB)
 INCLUDES := -I $(INC)
 CC       := gcc
-CFLAGS   := -Wall -std=c11 -g -O0 $(INCLUDES)
+CFLAGS   := -Wall -Wextra -std=c11 -g -O0 $(INCLUDES)
 
 FILENAME   := main
 EXECUTABLE := $(BIN)/$(FILENAME).elf
