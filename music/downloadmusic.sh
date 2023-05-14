@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Script to download music from YouTube or YouTube Music
+
 set -e -u
 
 LINK="$1"

@@ -1,3 +1,5 @@
+"""Script to rename files using their vorbis tags"""
+
 import os
 import logging
 import sys
