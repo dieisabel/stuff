@@ -4,6 +4,6 @@
 
 set -e -u
 
-source ./music.config
+source /home/kostiantyn/stuff/music/music.config
 
-$PYTHON $RENAME_PYTHON_SCRIPT
+$PYTHON $SCRIPT
