@@ -13,31 +13,32 @@ BIN = bin
 LIB = lib
 INC = include
 
-CC     = avr-gcc
-CFLAGS = \
--Wall \
--std=c11 \
--Os \
--mmcu=$(MMCU) \
--DF_CPU=$(CPU_FREQUENCY) \
-$(INCLUDES)
+CC       = avr-gcc
 OBJCOPY  = avr-objcopy
 SECTIONS = text data
 
+CFLAGS = \
+	-Wall \
+	-std=c11 \
+	-Os \
+	-mmcu=$(MMCU) \
+	-DF_CPU=$(CPU_FREQUENCY) \
+	$(INCLUDES)
+
 LIBS = \
--L $(LIB)
+	-L $(LIB)
 INCLUDES = \
--I $(INC)
+	-I $(INC)
 
 FILENAME   = main
 EXECUTABLE = $(BIN)/$(FILENAME).elf
 FIRMWARE   = $(BIN)/$(FILENAME).hex
 
 SOURCES = \
-$(SRC)/main.c
+	$(SRC)/main.c
 
 OBJECTS = \
-$(OBJ)/main.o
+	$(OBJ)/main.o
 
 define HELP_BODY
 - build: compile, link and copy sections into firmware
@@ -48,7 +49,6 @@ define HELP_BODY
 endef
 export HELP_BODY
 
-.PHONY: help
 default: build upload
 
 build: compile | $(BIN)
