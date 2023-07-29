@@ -1,3 +1,12 @@
+# Snippets for embedded programming
+
+Here you can find some cool snippets for embedded programming.
+
+## Scanners
+
+Simple I2C scanner using Arduino:
+
+```cpp
 #include <Arduino.h>
 #include <Wire.h>
 
@@ -44,3 +53,4 @@ void loop() {
     Serial.println("Done");
   delay(5000);
 }
+```
